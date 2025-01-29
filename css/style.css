@@ -1,0 +1,361 @@
+:root {
+    --primary-color: #612674;
+    --secondary-color: #8c5e9c;
+    --thirdy-color: #f6f6f6;
+
+    --gap-pattern: 1em;
+}
+
+/*
+Notas do CSS Grid:
+- min-width: 0 --> col-sm (small)
+- min-width: 50em --> col-md (middle)
+- min-width: 56.25em --> col-lg (large)
+- min-width: 74em --> col-xl (extra large)
+*/
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Oxygen", serif;
+}
+
+.maxWidth {
+    max-width: 70.25em;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-pattern);
+    justify-content: center;
+}
+
+.main_header {
+    width: 100%;
+    container-type: inline-size;
+    container-name: headerWidth;
+    background-color: white;
+}
+
+.header_container {
+    display: flex;
+    align-items: center;
+}
+
+.header_container-fixed {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.flex_nav {
+    display: flex;
+    margin-bottom: 0;
+}
+
+
+.nav_btn {
+    flex: 0 0 auto;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.nav_btn:active {
+    color: var(--primary-color);
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+@media screen and (max-width: calc(50em - 1px)) {
+    body {
+        min-width: 100vw;
+    }
+
+    div.header_container {
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .header_container-fixed {
+        position: static;
+    }
+
+    .flex_nav {
+        flex-direction: column;
+    }
+
+    .header_logo {
+        margin: .3em 0 .5em;
+    }
+
+    li.nav_btn {
+        background-color: var(--primary-color);
+        min-width: 100vw;
+        list-style: none;
+    }
+
+    li.nav_btn a {
+        display: block;
+        color: white;
+        padding: .7em 0;
+        text-decoration: none;
+    }
+
+    li.nav_btn a:hover {
+        background-color: var(--secondary-color);
+    }
+}
+
+/*MD*/
+@media screen and (min-width: 50em) {
+
+    /*DESKTOP!!!*/
+    .header_container {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 auto;
+        padding: .8em .4em;
+        box-sizing: border-box;
+    }
+
+    .flex_nav {
+        flex-direction: row;
+        gap: 1.5em;
+    }
+
+    li.nav_btn a {
+        padding: .5em .4em;
+        text-decoration: none;
+        transition: background-color .1s;
+    }
+
+    li.nav_btn a:hover {
+        box-sizing: border-box;
+        background-color: color-mix(in srgb, var(--primary-color), white 80%);
+        border-radius: 12px;
+        color: var(--secondary-color);
+    }
+}
+
+@container headerWidth (min-width: 64em) {
+    div.header_container {
+        max-width: 64em;
+    }
+}
+
+.heroBanner {
+    text-align: center;
+    background-color: var(--thirdy-color);
+    padding: 1em;
+}
+
+.heroBanner_title {
+    font-size: 1.5em;
+    margin-top: 0rem;
+    color: var(--primary-color);
+    padding: 1.5em 0 .6em;
+}
+
+.heroBanner_subtitle {
+    color: var(--secondary-color);
+    font-weight: lighter;
+    line-height: 2.4rem;
+    font-size: 1.2em;
+}
+
+.heroBanner_iconPlay {
+    display: none;
+}
+
+.heroBanner_btn {
+    display: inline-block;
+    background-color: #01c8c8;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 2.5rem;
+    border-radius: 8px;
+}
+
+.heroBanner_btn:active {
+    background-color: transparent;
+    outline: 1px solid #01c8c8;
+    color: var(--primary-color);
+}
+
+/*MD*/
+@media screen and (min-width: 50em) {
+    .heroBanner {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1.25rem;
+        box-sizing: border-box;
+    }
+
+    .heroBanner_iconPlay {
+        display: inline-block;
+        width: 100px;
+    }
+
+    .heroBanner_title {
+        color: white;
+    }
+
+    .heroBanner_subtitle {
+        color: white;
+        font-weight: 700;
+    }
+
+    .heroBanner_btn:active {
+        color: white;
+        outline: 1px solid white;
+    }
+}
+
+/*LG*/
+@media screen and (min-width: 56.25rem) {
+    .heroBanner {
+        background-image: url(../images/bg_topo_1198x670.jpg);
+        aspect-ratio: 1198 / 670;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .maxWidth {
+        margin: initial;
+        margin-bottom: 4em;
+    }
+
+}
+
+/*XL*/
+@media screen and (min-width: 74rem) {
+    .heroBanner {
+        background-image: url(../images/bg_topo_1600x1374.jpg);
+        align-items: center;
+    }
+
+    .maxWidth {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .heroBanner_subtitle,
+    .heroBanner_title {
+        text-shadow: 0 0 5px black;
+    }
+
+}
+
+.middleContent {
+    text-align: center;
+    padding-top: 1em;
+    width: 100%;
+    background-color: var(--thirdy-color);
+}
+
+.middleContent a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 1em;
+}
+
+.middleContent_cards {
+    box-sizing: border-box;
+    color: var(--primary-color);
+}
+
+.middleContent_icon {
+    font-size: 3em;
+}
+
+@media screen and (min-width: 0) {
+
+    .col-sm-12 {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 50em) {
+
+    .col-md-6 {
+        width: calc(50% - var(--gap-pattern));
+    }
+
+    .middleContent_cards a:hover {
+        transform: scale(1.05);
+    }
+}
+
+@media screen and (min-width: 74em) {
+    .col-xl-3 {
+        max-width: calc(25% - var(--gap-pattern));
+    }
+
+}
+
+.mainContent {
+    padding: 2em;
+}
+
+.mainContent_card {
+    container-type: inline-size;
+    container-name: cardContainer;
+}
+
+.mainContent_img {
+    width: 100%;
+}
+
+.mainContent_img img {
+    width: 100%;
+    aspect-ratio: 319.551 / 216.008;
+}
+
+
+.mainContent_title {
+    font-weight: lighter;
+    font-size: 1.3em;
+    color: var(--primary-color);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+.mainContent .row {
+    row-gap: calc(var(--gap-pattern) * 4);
+}
+
+@container cardContainer (min-width: 500px) {
+    .mainContent_container {
+        display: flex;
+        gap: var(--gap-pattern);
+    }
+}
+
+.heroFooter {
+    background-color: rgb(28, 57, 51);
+    text-align: center;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+.heroFooter p{
+    color: rgb(124, 124, 124);
+    font-size: 1.2em;
+}
